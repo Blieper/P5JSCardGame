@@ -1,40 +1,42 @@
 var clickables = [];
 
-var Clickable = function (x, y, width, height, callbackObject) {
+class Clickable {
 
-    clickables.push(this);
+    constructor () {
+        clickables.push(this);
 
-    this.width  = width;
-    this.height = height;
-    this.x      = x;
-    this.y      = y;
+        this.width  = width;
+        this.height = height;
+        this.x      = x;
+        this.y      = y;
 
-    this.hoverScale  = 1;
-    this.hoverScaler = 1;
-    
-    this.standardWidth    = this.width;
-    this.standardHeight   = this.height;
+        this.hoverScale  = 1;
+        this.hoverScaler = 1;
+        
+        this.standardWidth    = this.width;
+        this.standardHeight   = this.height;
 
-    this.speed      = 0;
-    this.targetX    = 0;
-    this.targetY    = 0;
+        this.speed      = 0;
+        this.targetX    = 0;
+        this.targetY    = 0;
 
-    this.textPaddingUp      = 2;
-    this.textPaddingDown    = 2;
-    this.textPaddingLeft    = 2;
-    this.textPaddingRight   = 2; 
+        this.textPaddingUp      = 2;
+        this.textPaddingDown    = 2;
+        this.textPaddingLeft    = 2;
+        this.textPaddingRight   = 2; 
 
-    this.isPressed   = false;
-    this.onPressDown = false;
-    this.onPressUp   = false;
-    this.mouseIsOver = false;
-    this.isMoving    = false;
+        this.isPressed   = false;
+        this.onPressDown = false;
+        this.onPressUp   = false;
+        this.mouseIsOver = false;
+        this.isMoving    = false;
 
-    this.displayText = '';
+        this.displayText = '';
 
-    console.log(callbackObject);
+        console.log(callbackObject);
+    }
 
-    this.render = function () {  
+    render() {  
         if (!this.isPressed) {
 
         }else{
@@ -58,7 +60,7 @@ var Clickable = function (x, y, width, height, callbackObject) {
             this.height - this.textPaddingUp - this.textPaddingDown);
     }
 
-    this.update = function () {
+    update() {
         this.onPressDown = false;
         this.onPressUp   = false;
 
@@ -92,32 +94,32 @@ var Clickable = function (x, y, width, height, callbackObject) {
         this.render();
     }
 
-    this.onPressed   = function () {
+    onPressed() {
         if (callbackObject.onPressed) {
             callbackObject.onPressed();
         }
     }
 
-    this.onUnpressed = function () {
+    onUnpressed() {
         if (callbackObject.onUnpressed) {
             callbackObject.onUnpressed();
         }
     }
 
-    this.pressed     = function () {
+    pressed() {
         if (callbackObject.pressed) {
             callbackObject.pressed();
         }
     }
     
-    this.moveTo = function (x, y, speed) {
+    moveTo(x, y, speed) {
         this.isMoving   = true;  
         this.speed      = speed;
         this.targetX    = x;
         this.targetY    = y;    
     }
 
-    this.move = function (x, y, speed) {
+    move(x, y, speed) {
         var dist = distance(x,y,this.x,this.y);
 
         if (dist > 0.05) {      
