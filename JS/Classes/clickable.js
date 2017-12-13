@@ -1,14 +1,29 @@
+//This is a clickable class. It's basically the base for every object in our game
+
 var clickables = [];
+
+function getClickableID (clickable) {
+    for (let i = 0; i < clickables.length; i++) {
+        if (clickables[i] == clickable) {
+            return i;
+        }
+    }
+
+    return -1;
+}
 
 class Clickable {
 
-    constructor () {
+    constructor (x = 0, y = 0, width = 50, height = 25) {
         clickables.push(this);
 
         this.width  = width;
         this.height = height;
         this.x      = x;
         this.y      = y;
+
+        this.isClickable = true;
+        this.isActive = true;
 
         this.hoverScale  = 1;
         this.hoverScaler = 1;
@@ -30,10 +45,11 @@ class Clickable {
         this.onPressUp   = false;
         this.mouseIsOver = false;
         this.isMoving    = false;
+        this.overPressed = false;
 
-        this.displayText = '';
-
-        console.log(callbackObject);
+        this.mouseIsPressedTrack = mouseIsPressed;
+        
+        this.text = '';
     }
 
     render() {  
@@ -53,7 +69,7 @@ class Clickable {
         textAlign(CENTER,CENTER);
 
         textSize(12 * this.hoverScaler);
-        text(this.displayText,
+        text(this.text,
             this.x + this.textPaddingLeft - this.width/2,
             this.y + this.textPaddingUp - this.height/2, 
             this.width - this.textPaddingLeft - this.textPaddingRight, 
@@ -61,55 +77,63 @@ class Clickable {
     }
 
     update() {
-        this.onPressDown = false;
-        this.onPressUp   = false;
+        if (this.isActive) { 
+            if (this.isClickable) {
+                this.onPressDown = false;
+                this.onPressUp   = false;
 
-        if ((mouseX >= (this.x - this.width/2)) && (mouseX <= (this.x + this.width/2)) && (mouseY >= (this.y - this.height/2)) && (mouseY <= (this.y + this.height/2))) {
-            this.mouseIsOver = true;
-        }else{
-            this.mouseIsOver = false;
+                if ((mouseX >= (this.x - this.width/2)) && (mouseX <= (this.x + this.width/2)) && (mouseY >= (this.y - this.height/2)) && (mouseY <= (this.y + this.height/2))) {
+                    this.mouseIsOver = true;
+                }else{
+                    this.mouseIsOver = false;
+                }
+
+                if (this.mouseIsPressedTrack != mouseIsPressed) {
+                    this.mouseIsPressedTrack = mouseIsPressed;
+
+                    if (this.mouseIsOver && mouseIsPressed) {
+                        this.overPressed = true;
+                    }else{
+                        this.overPressed = false;                        
+                    }
+                }
+
+                if (this.mouseIsOver && this.overPressed) {
+                    if (!this.isPressed) {this.onPressDown = true; this.onPressed();}
+                    this.isPressed = true;
+                }else if (!mouseIsPressed) {
+                    if (this.isPressed) {this.onPressUp = true; this.onUnpressed();}
+                    this.isPressed = false;
+                }
+
+                if (this.isPressed) {
+                    this.pressed();
+                }
+
+                if (this.mouseIsOver) {
+                    this.hoverScaler += (this.hoverScale - this.hoverScaler) * 0.5;      
+                }else{
+                    this.hoverScaler += (1 - this.hoverScaler) * 0.5;                
+                }
+
+                this.width   = lerp(this.width, this.standardWidth * this.hoverScaler,0.15);
+                this.height  = lerp(this.height, this.standardHeight * this.hoverScaler,0.15);   
+            }
+
+            this.render();
         }
-
-        if (mouseIsPressed && this.mouseIsOver) {
-            if (!this.isPressed) {this.onPressDown = true; this.onPressed();}
-            this.isPressed = true;
-        }else if (!mouseIsPressed) {
-            if (this.isPressed) {this.onPressUp = true; this.onUnpressed();}
-            this.isPressed = false;
-        }
-
-        if (this.isPressed) {
-            this.pressed();
-        }
-
-        if (this.mouseIsOver) {
-            this.hoverScaler += (this.hoverScale - this.hoverScaler) * 0.5;      
-        }else{
-            this.hoverScaler += (1 - this.hoverScaler) * 0.5;                
-        }
-
-        this.width   = lerp(this.width, this.standardWidth * this.hoverScaler,0.15);
-        this.height  = lerp(this.height, this.standardHeight * this.hoverScaler,0.15);   
-
-        this.render();
     }
 
     onPressed() {
-        if (callbackObject.onPressed) {
-            callbackObject.onPressed();
-        }
+
     }
 
     onUnpressed() {
-        if (callbackObject.onUnpressed) {
-            callbackObject.onUnpressed();
-        }
+
     }
 
     pressed() {
-        if (callbackObject.pressed) {
-            callbackObject.pressed();
-        }
+
     }
     
     moveTo(x, y, speed) {
@@ -131,6 +155,13 @@ class Clickable {
 
             this.isMoving = false;
             this.speed = 0;     
+        }
+    }
+
+    delete () {
+        let i = getClickableID(this);
+        if (i > -1) {
+            clickables.splice(i,1);
         }
     }
 }

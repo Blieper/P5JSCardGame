@@ -1,13 +1,25 @@
+//Base class for each card.
+
 var cards = [];
 
-function Card () {
-    this.clickable = new Clickable(0, 0, card_width, card_height, this);
-    this.clickable.hoverScale = 1.05;
-    this.clickable.displayText = 'wda daw daw uhdiauw hdiuawh idhia hiduwhiduha i';
+class Card extends Clickable {
 
-    this.pressed = function () {
-        this.clickable.moveTo(mouseX,mouseY,0.1);
+    constructor (text = "") {
+        super(0,0,card_width,card_height);
+        this.hoverScale = 1.05;
+        this.text = text;
+
+        this.nextIndex = 0;
+        this.cards = [];
+        
+        cards.push(this);
     }
+
+    func () {return;}
+    
+    onPressed() {
+        this.func ();
+        setToNewCard(this.nextIndex);
+    }
+
 }
-
-
