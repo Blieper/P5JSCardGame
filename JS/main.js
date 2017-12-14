@@ -50,8 +50,14 @@ function setToNewCard(index) {
   // Make a new card for the main message
   gameplay_card = new Card(gameplay_character.event[index].text);
   gameplay_card.isClickable = false;
-  gameplay_card.x = width / 2;
-  gameplay_card.y = 150;
+
+  let x = width / 2;
+  let y = 150;
+
+  gameplay_card.x = x;
+  gameplay_card.y = y - 350;
+
+  gameplay_card.moveTo(x,y,0.15);
 
   // Only make answer cards if we have answers
   if (gameplay_character.event[index].options) {
@@ -83,9 +89,14 @@ function setToNewCard(index) {
         }
       }
 
-      // Position the cards 
-      gameplay_answerCards[i].x = width / 2 - (gameplay_character.event[index].options.length * -0.5 + (i + 0.5)) * 200;
-      gameplay_answerCards[i].y = height - 200;
+      // Position and move the cards 
+      let x = width / 2 - (gameplay_character.event[index].options.length * -0.5 + (i + 0.5)) * 200;
+      let y = height - 200;
+
+      gameplay_answerCards[i].x = x;
+      gameplay_answerCards[i].y = y + 350;
+
+      gameplay_answerCards[i].moveTo(x,y,0.15);
     }
   }
 }

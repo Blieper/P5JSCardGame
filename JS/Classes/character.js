@@ -46,7 +46,7 @@ class John extends Character {
                     { text: "Well sorry for asking...",
                     };  
 
-                    // "That's none of your business."
+                    // "Your mom."
                     this.event[1113] = 
                     { text: "Well sorry for asking...",
                     };   

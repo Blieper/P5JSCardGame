@@ -41,10 +41,10 @@ class Clickable {
         this.targetX = 0;
         this.targetY = 0;
 
-        this.textPaddingUp = 2;
-        this.textPaddingDown = 2;
-        this.textPaddingLeft = 2;
-        this.textPaddingRight = 2;
+        this.textPaddingUp      = 2;
+        this.textPaddingDown    = 2;
+        this.textPaddingLeft    = 2;
+        this.textPaddingRight   = 2;
 
         this.isPressed = false;
         this.onPressDown = false;
@@ -143,10 +143,10 @@ class Clickable {
 
                 this.width = lerp(this.width, this.standardWidth * this.hoverScaler, 0.25);
                 this.height = lerp(this.height, this.standardHeight * this.hoverScaler, 0.25);
+            }
 
-                if (this.isMoving) {
-                    this.move(this.targetX, this.targetY, this.speed);
-                }
+            if (this.isMoving) {
+                this.move(this.targetX, this.targetY, this.speed);
             }
 
             this.render();
@@ -166,16 +166,16 @@ class Clickable {
     }
 
     moveTo(x, y, speed) {
-        this.isMoving = true;
-        this.speed = speed;
-        this.targetX = x;
-        this.targetY = y;
+        this.isMoving   = true;
+        this.speed      = speed;
+        this.targetX    = x;
+        this.targetY    = y;
     }
 
     move(x, y, speed) {
-        var dist = dist(x, y, this.x, this.y);
+        let distance = dist(x, y, this.x, this.y);
 
-        if (dist > 0.05) {
+        if (distance > 0.05) {
             this.x += -(this.x - x) * speed;
             this.y += -(this.y - y) * speed;
         } else {
