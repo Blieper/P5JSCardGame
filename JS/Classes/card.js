@@ -1,11 +1,12 @@
 //Base class for each card.
 
-var cards = [];
+let cards = [];
 
 class Card extends Clickable {
 
     constructor(text = "") {
         super(0, 0, card_width, card_height);
+        
         this.hoverScale             = 1.05;
         this.text                   = text;
         this.onlyUnpressOverButton  = true;
@@ -19,10 +20,6 @@ class Card extends Clickable {
         this.cards      = [];
 
         cards.push(this);
-    }
-
-    onPressed() {
-
     }
 
 }

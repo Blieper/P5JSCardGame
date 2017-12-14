@@ -57,7 +57,7 @@ function setToNewCard(index) {
   gameplay_card.x = x;
   gameplay_card.y = y - 350;
 
-  gameplay_card.moveTo(x,y,0.15);
+  gameplay_card.moveTo(x, y, 0.15);
 
   // Only make answer cards if we have answers
   if (gameplay_character.event[index].options) {
@@ -96,7 +96,7 @@ function setToNewCard(index) {
       gameplay_answerCards[i].x = x;
       gameplay_answerCards[i].y = y + 350;
 
-      gameplay_answerCards[i].moveTo(x,y,0.15);
+      gameplay_answerCards[i].moveTo(x, y, 0.15);
     }
   }
 }

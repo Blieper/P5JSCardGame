@@ -32,8 +32,8 @@ class John extends Character {
                 { text: "Oh that's terrible, what's it's name?",
                 options:[    
                 { response: "Jerry", next: 1111, rep: 1},                              
-                { response: "That's none of your business.", next: 1112, rep: 1},
-                { response: "Your mom.", next: 1113, rep: 1},               
+                { response: "That's none of your business.", next: 1112, rep: -1},
+                { response: "Your mom.", next: 1113, rep: -5},               
                 ]};  
                     
                     // "Jerry"
@@ -70,4 +70,4 @@ class John extends Character {
     }
 
 }
-    
+        
