@@ -12,60 +12,56 @@ class John extends Character {
     
     constructor () {
         super();
-        
-        this.event[1] = { text: "Hello, how are you?",
+
+        this.event[1] = { text: "Hello young price.",
         options: [    
-        { response: "Bad", next: 11, rep: 0 },
-        { response: "Good", next: 12, rep: 0 },
-        ]};
+        { response: "Stfu you prawn", next: 11, rep: 10000 },
+        { response: "Are you a prawn?", next: 12, rep: -10000 },
+        ]};      
 
-            // Bad
-            this.event[11] = 
-            { text: "Why, what's wrong?",
-            options:[    
-            { response: "My dog ran away", next: 111},                              
-            { response: "I broke up with my girlfriend", next: 112},
-            ]};  
-
-                // "My dog ran away"
-                this.event[111] = 
-                { text: "Oh that's terrible, what's it's name?",
-                options:[    
-                { response: "Jerry", next: 1111, rep: 1},                              
-                { response: "That's none of your business.", next: 1112, rep: -1},
-                { response: "Your mom.", next: 1113, rep: -5},               
-                ]};  
-                    
-                    // "Jerry"
-                    this.event[1111] = 
-                    { text: "Lol who the fuck calls his dog Jerry.",
-                    };   
-
-                    // "That's none of your business."
-                    this.event[1112] = 
-                    { text: "Well sorry for asking...",
-                    };  
-
-                    // "Your mom."
-                    this.event[1113] = 
-                    { text: "Well sorry for asking...",
-                    };   
-
-                // "I broke up with my girlfriend"
-                this.event[112] = 
-                { text: "Why, what's wrong?",
-                options:[    
-                { response: "My dog ran away", next: 3},                              
-                { response: "I broke up with my girlfriend", next: 4},
-                ]};   
-
-            // Good
-            this.event[12] = { text: "Done anything recently?",
+            // "Stfu you prawn"
+            this.event[11] = { text: "Excuse me?",
             options: [    
-            { response: "Yeah, I went to the cinema!", next: 1, rep: -1 },
-            { response: "Good", next: 2, rep: 1 },
-            ]};
-       
+            { response: "Me too thanks", next: 111, rep: 0 },
+            { response: "What?", next: 112, rep: 0 },
+            ]};      
+ 
+                // "Me too thanks"
+                this.event[111] = { text: "I see you're a man of my culture",
+                options: [    
+                { response: "yes", next: 1111, rep: 0 },
+                { response: "no", next: 1112, rep: 0 },
+                ]}; 
+ 
+                    // "yes"
+                    this.event[1111] = { text: "Cool!",
+                    }; 
+ 
+                    // "no"
+                    this.event[1112] = { text: "Oh.",
+                    }; 
+
+                // "What?"
+                this.event[112] = { text: "Huh?",
+                options: [    
+                { response: "Me too thanks", next: 1121, rep: 0 },
+                { response: "What?", next: 1122, rep: 0 },
+                ]}; 
+ 
+                    // "Me too thanks"
+                    this.event[1121] = { text: "Thanks",
+                    }; 
+
+                    // "What?"
+                    this.event[1122] = { text: "Prawns",
+                    }; 
+
+            // "Are you a prawn?"
+            this.event[12] = { text: "Excuse me?",
+            options: [    
+            { response: "Stfu you prawn", next: 11, rep: 0 },
+            { response: "Are you a prawn", next: 12, rep: 0 },
+            ]};        
 
     }
 

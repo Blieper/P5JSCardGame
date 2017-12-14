@@ -18,7 +18,7 @@ let gameplay_repchange;
 function setup() {
   createCanvas(windowWidth, windowHeight);
 
-  setToNewCharacter(new John());
+  setToNewCharacter(new Wesley());
 }
 
 function changeReputation(changeAmount) {
