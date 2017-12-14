@@ -1,4 +1,4 @@
-class Lord_Super_Prawn extends Character {
+class Wesley extends Character {
     
     constructor () {
         super();
