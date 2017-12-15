@@ -51,6 +51,8 @@ function setToNewCard(index) {
   gameplay_card = new Card(gameplay_character.event[index].text);
   gameplay_card.isClickable = false;
 
+  responsiveVoice.speak(gameplay_card.text);
+
   let x = width / 2;
   let y = 150;
 
@@ -114,7 +116,7 @@ function draw() {
 
   // Reputation change
   if (gameplay_replerp > 0.1) {
-    gameplay_replerp += -gameplay_replerp * 0.025;
+    gameplay_replerp += -gameplay_replerp * 0.0125;
 
     if (gameplay_replerp < 0.05) {
       gameplay_replerp = 0;

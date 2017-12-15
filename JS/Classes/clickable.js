@@ -53,6 +53,7 @@ class Clickable {
         this.isMoving = false;
         this.overPressed = false;
         this.offPressed = false;
+        this.wasHovering = false;
 
         this.mouseIsPressedTrack = mouseIsPressed;
 
@@ -141,6 +142,16 @@ class Clickable {
                     this.hoverScaler += (1 - this.hoverScaler) * 0.5;
                 }
 
+                if (this.wasHovering != this.mouseIsOver) {
+                    if (this.mouseIsOver) {
+                        this.onHovered();
+                    }else{
+                        this.onStopHovered();
+                    }
+
+                    this.wasHovering = this.mouseIsOver;
+                }
+
                 this.width = lerp(this.width, this.standardWidth * this.hoverScaler, 0.25);
                 this.height = lerp(this.height, this.standardHeight * this.hoverScaler, 0.25);
             }
@@ -162,6 +173,15 @@ class Clickable {
     }
 
     pressed() {
+        return;
+    }
+
+    onHovered() {
+        responsiveVoice.speak(this.text,"Dutch Female",{pitch: 0.25});
+        return;
+    }
+
+    onStopHovered() {
         return;
     }
 
