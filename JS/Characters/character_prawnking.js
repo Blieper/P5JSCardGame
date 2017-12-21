@@ -1,4 +1,4 @@
-class Wesley extends Character {
+class Prawnking extends Character {
     
     constructor () {
         super();

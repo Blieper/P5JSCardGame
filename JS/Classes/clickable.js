@@ -16,28 +16,32 @@ function getClickableID(clickable) {
 
 class Clickable {
 
-    constructor(x = 0, y = 0, width = 50, height = 25) {
+    constructor(x = 0, y = 0, width = 50, height = 25, anchor = anchorTypes.TOPLEFT) {
         clickables.push(this);
 
-        this.width = width;
+        this.width  = width;
         this.height = height;
-        this.x = x;
-        this.y = y;
+        this.x      = x;
+        this.y      = y;
+
+        this.anchor     = anchor;
+        this.anchorX    = 0.5;
+        this.anchorY    = 0.5;
 
         // Can you even click the button?
-        this.isClickable = true;
+        this.isClickable            = true;
         // true -> only trigger onPressed if it was unpressed while the cursor was on the button. false -> will always unpress regardless of the cursor's position
-        this.onlyUnpressOverButton = false;
+        this.onlyUnpressOverButton  = false;
         // only render and update if its active
-        this.isActive = true;
+        this.isActive               = true;
 
-        this.hoverScale = 1;
-        this.hoverScaler = 1;
+        this.hoverScale     = 1.25;
+        this.hoverScaler    = 1;
 
-        this.standardWidth = this.width;
+        this.standardWidth  = this.width;
         this.standardHeight = this.height;
 
-        this.speed = 0;
+        this.speed   = 0;
         this.targetX = 0;
         this.targetY = 0;
 
@@ -46,21 +50,21 @@ class Clickable {
         this.textPaddingLeft    = 2;
         this.textPaddingRight   = 2;
 
-        this.isPressed = false;
-        this.onPressDown = false;
-        this.onPressUp = false;
-        this.mouseIsOver = false;
-        this.isMoving = false;
-        this.overPressed = false;
-        this.offPressed = false;
-        this.wasHovering = false;
+        this.isPressed      = false;
+        this.onPressDown    = false;
+        this.onPressUp      = false;
+        this.mouseIsOver    = false;
+        this.isMoving       = false;
+        this.overPressed    = false;
+        this.offPressed     = false;
+        this.wasHovering    = false;
 
         this.mouseIsPressedTrack = mouseIsPressed;
 
         this.text = '';
     }
 
-    render() {
+    render(ax, ay) {
         if (!this.isPressed) {
 
         } else {
@@ -70,29 +74,70 @@ class Clickable {
         strokeWeight(1);
         stroke(50);
         fill(255);
-        rect(this.x - this.width / 2, this.y - this.height / 2, this.width, this.height, 10);
+        rect(ax - this.width * this.anchorX, ay - this.height * this.anchorY, this.width, this.height, 10);
 
         fill(10);
         strokeWeight(0);
         textAlign(CENTER, CENTER);
-
         textSize(12 * this.hoverScaler);
         text(this.text,
-            this.x + this.textPaddingLeft - this.width / 2,
-            this.y + this.textPaddingUp - this.height / 2,
-            this.width - this.textPaddingLeft - this.textPaddingRight,
-            this.height - this.textPaddingUp - this.textPaddingDown);
+            ax + this.textPaddingLeft - this.width  * this.anchorX,
+            ay + this.textPaddingUp   - this.height * this.anchorY,
+            this.width  - this.textPaddingLeft - this.textPaddingRight,
+            this.height - this.textPaddingUp   - this.textPaddingDown);
     }
 
     update() {
         if (this.isActive) {
+            let ax = 0;
+            let ay = 0;
+    
+            switch (this.anchor) {
+                case anchorTypes.TOPLEFT:
+                    ax = this.x;
+                    ay = this.y;
+                    break;
+                case anchorTypes.LEFT:
+                    ax = this.x;
+                    ay = this.y + height/2;
+                    break;    
+                case anchorTypes.BOTTOMLEFT:
+                    ax = this.x;
+                    ay = this.y + height;
+                    break;      
+                case anchorTypes.TOP:
+                    ax = this.x + width/2;
+                    ay = this.y;
+                    break;
+                case anchorTypes.CENTER:
+                    ax = this.x + width/2;
+                    ay = this.y + height/2;
+                    break;    
+                case anchorTypes.BOTTOM:
+                    ax = this.x + width/2;
+                    ay = this.y + height;
+                    break;      
+                case anchorTypes.TOPRIGHT:
+                    ax = this.x + width;
+                    ay = this.y;
+                    break;
+                case anchorTypes.RIGHT:
+                    ax = this.x + width;
+                    ay = this.y + height/2;
+                    break;    
+                case anchorTypes.BOTTOMRIGHT:
+                    ax = this.x + width;
+                    ay = this.y + height;
+                    break;    
+            }
+            
             if (this.isClickable) {
                 this.onPressDown = false;
                 this.onPressUp = false;
 
-                if ((mouseX >= (this.x - this.width / 2)) && (mouseX <= (this.x + this.width / 2)) && (mouseY >= (this.y - this.height / 2)) && (mouseY <= (this.y + this.height / 2))) {
+                if ((mouseX >= (ax - this.width * this.anchorX)) && (mouseX <= (ax + this.width * (1-this.anchorX))) && (mouseY >= (ay - this.height * this.anchorY)) && (mouseY <= (ay + this.height * (1-this.anchorY)))) {
                     this.mouseIsOver = true;
-                    cursor(HAND, this.x, this.y);
+                    cursor(HAND);
                 } else {
                     this.mouseIsOver = false;
                 }
@@ -160,7 +205,7 @@ class Clickable {
                 this.move(this.targetX, this.targetY, this.speed);
             }
 
-            this.render();
+            this.render(ax,ay);
         }
     }
 
@@ -177,7 +222,7 @@ class Clickable {
     }
 
     onHovered() {
-        responsiveVoice.speak(this.text,"Dutch Female",{pitch: 0.25});
+        //responsiveVoice.speak(this.text,"Dutch Female",{pitch: 0.25});
         return;
     }
 
