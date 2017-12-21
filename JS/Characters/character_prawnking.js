@@ -5,7 +5,7 @@ class Prawnking extends Character {
 
         // Starting message
 
-        this.event[1] = { text: "Hello young price.",
+        this.event[1] = { text: "Hello young prince.",
         options: [    
         { response: "Hello,strange creature with claws", next: 11, rep: 228 },
         { response: "Are you a prawn?", next: 12, rep: -1337 },

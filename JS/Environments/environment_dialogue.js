@@ -26,7 +26,7 @@ class Environment_Dialogue extends Environment {
     }
     
     setToNewCard(index) {
-        // Delete all previous cards to save performance
+        // Delete all previous cards
         for (let i = cards.length - 1; i >= 0; i--) {
             cards[i].delete();
         }

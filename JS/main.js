@@ -1,11 +1,11 @@
-//This is the main 'gameplay' script that has cards, a character and whatever
 
 //global gameplay variables
 
-let card_width = 150;
-let card_height = 250;
+let card_width = 110;
+let card_height = 200;
 
 let gameplay_reputation = 0;
+let gameplay_time = 0;
 
 //
 
@@ -30,16 +30,17 @@ let anchorTypes = {
 };
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(800, 600);
 
-  game_environment = new Environment_Dialogue(new Prawnking());
-
-  game_environment.setup();
+  game_environment = new Environment_Mainmenu();
 }
 
 function draw() {
   clear();
   cursor(ARROW);
+
+  // Update environment 
+  game_environment.update();
 
   // Update all clickables
   for (let i = 0; i < clickables.length; i++) {
@@ -47,11 +48,8 @@ function draw() {
       clickables[i].update();
     }
   }
-
-  // Update environment 
-  game_environment.update();
 }
 
-function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
-}
+// function windowResized() {
+//   resizeCanvas(windowWidth, windowHeight);
+// }
