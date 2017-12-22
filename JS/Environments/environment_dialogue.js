@@ -39,7 +39,7 @@ class Environment_Dialogue extends Environment {
         gameplay_card = new Card(gameplay_character.event[index].text);
         gameplay_card.isClickable = false;
       
-        responsiveVoice.speak(gameplay_card.text);
+        //responsiveVoice.speak(gameplay_card.text);
       
         let x = width / 2;
         let y = 150;

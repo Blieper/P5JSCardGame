@@ -1,6 +1,6 @@
 //This is a clickable class. It's basically the base for every object in our game
 
-let clickables = [];
+var clickables = [];
 
 function getClickableID(clickable) {
     let index = -1;
@@ -30,6 +30,8 @@ class Clickable {
 
         this.drawFrame  = true;
         this.textSize   = 12;
+
+        this.paused = false;
 
         // Can you even click the button?
         this.isClickable            = true;
@@ -136,7 +138,7 @@ class Clickable {
                     break;    
             }
             
-            if (this.isClickable) {
+            if (this.isClickable && !this.paused) {
                 this.onPressDown = false;
                 this.onPressUp = false;
 
@@ -227,7 +229,7 @@ class Clickable {
     }
 
     onHovered() {
-        responsiveVoice.speak(this.text,"Dutch Female",{pitch: 1});
+        //responsiveVoice.speak(this.text,"Dutch Female",{pitch: 1});
         return;
     }
 

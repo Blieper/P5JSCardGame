@@ -16,6 +16,8 @@ let gameplay_replerp;
 let gameplay_repchange;
 
 let game_environment;
+let game_paused = false;
+let game_muted = false;
 
 let anchorTypes = {
   TOPLEFT:        0,
@@ -30,7 +32,7 @@ let anchorTypes = {
 };
 
 function setup() {
-  createCanvas(800, 600);
+  createCanvas(windowWidth, windowHeight);
 
   game_environment = new Environment_Mainmenu();
 }
@@ -39,8 +41,10 @@ function draw() {
   clear();
   cursor(ARROW);
 
-  // Update environment 
-  game_environment.update();
+  if (!game_paused) {
+    // Update environment 
+    game_environment.update();
+  }
 
   // Update all clickables
   for (let i = 0; i < clickables.length; i++) {
