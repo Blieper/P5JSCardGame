@@ -4,7 +4,7 @@ class Environment_ChooseCityopia extends Environment {
         super();
 
         this.cardPrawnKing  = new Card("King Prawn");
-        this.cardPeasant1   = new Card("Peasant 1");
+        this.cardPeasant1   = new Card("Dave");
         this.cardPeasant2   = new Card("Peasant 2");       
         this.cardPeasant3   = new Card("Peasant 3");       
         this.cardPeasant4   = new Card("Peasant 4");       
@@ -17,6 +17,19 @@ class Environment_ChooseCityopia extends Environment {
             setTimeout(function(){
                 game_environment.onFinishedTransition();
                 game_environment = new Environment_Dialogue(new Prawnking);
+                game_environment.setup();
+            }, 500);
+        }
+
+                
+        oldPressed = this.cardPeasant1.onUnpressed;
+        this.cardPeasant1.onUnpressed = function () {
+            oldPressed();
+
+            game_environment.onTransition();
+            setTimeout(function(){
+                game_environment.onFinishedTransition();
+                game_environment = new Environment_Dialogue(new Dave);
                 game_environment.setup();
             }, 500);
         }
