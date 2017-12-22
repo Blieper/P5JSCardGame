@@ -227,7 +227,7 @@ class Clickable {
     }
 
     onHovered() {
-        //responsiveVoice.speak(this.text,"Dutch Female",{pitch: 0.25});
+        responsiveVoice.speak(this.text,"Dutch Female",{pitch: 1});
         return;
     }
 
