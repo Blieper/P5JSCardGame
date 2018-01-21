@@ -14,7 +14,7 @@ class Environment_Mainmenu extends Environment {
             oldPressed();
 
             game_environment.onTransition();
-            setTimeout(function(){game_environment.onFinishedTransition()}, 500);
+            setTimeout(setToEnv(envids.MAP), 500);
 
             this.delete();
         }
@@ -58,8 +58,5 @@ class Environment_Mainmenu extends Environment {
 
     onFinishedTransition() {
         this.destroyAll();
-
-        game_environment = new Environment_Map();
-        game_environment.setup();
     }
 }

@@ -73,11 +73,13 @@ class Environment {
     }
 
     destroyAll () {
-        while (clickables.length) {
-            clickables[clickables.length-1].delete();
-        }
+        // while (clickables.length) {
+        //     clickables[clickables.length-1].delete();
+        // }
 
         clickables.length = 0;
+
+        cards.length = 0;
     }
 
 }

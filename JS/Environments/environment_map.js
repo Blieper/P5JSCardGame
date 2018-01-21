@@ -16,8 +16,7 @@ class Environment_Map extends Environment {
 
                 setTimeout(function(){
                     game_environment.onFinishedTransition();
-                    game_environment = new Environment_ChooseCityopia();
-                    game_environment.setup();
+                    setToEnv(envids.CITY1);
                 }, 500);
 
                 this.delete();
@@ -27,6 +26,12 @@ class Environment_Map extends Environment {
 
             this.blur = 0;
             this.inTransition = false;
+
+            this.time   = new Clickable(0,100,100,100,anchorTypes.TOP);
+            this.time.text        = gameplay_timestring;
+            this.time.textSize    = 48;
+            this.time.drawFrame   = false;
+            this.time.isClickable = false;
         }
         
         onTransition () {

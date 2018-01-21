@@ -3,6 +3,7 @@ class Character {
 
     constructor () {
         this.event = []; 
+        this.conversationTime = 60;
     }
 
 }

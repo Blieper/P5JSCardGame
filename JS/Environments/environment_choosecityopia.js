@@ -3,6 +3,22 @@ class Environment_ChooseCityopia extends Environment {
     constructor () {
         super();
 
+        // Back button
+        this.backButton = new Clickable(50,-50,50,50,anchorTypes.BOTTOMLEFT);
+        this.backButton.text = "back";
+        this.backButton.anchorX = 0;
+        this.backButton.anchorY = 1;
+        
+        this.time   = new Clickable(0,100,100,100,anchorTypes.TOP);
+        this.time.text        = gameplay_timestring;
+        this.time.textSize    = 48;
+        this.time.drawFrame   = false;
+        this.time.isClickable = false;
+
+        this.backButton.onUnpressed = function () {
+            setToEnv(envids.MAP);
+        }
+
         this.cardPrawnKing  = new Card("King Prawn");
         this.cardPeasant1   = new Card("Dave");
         this.cardPeasant2   = new Card("Peasant 2");       
@@ -16,8 +32,7 @@ class Environment_ChooseCityopia extends Environment {
             game_environment.onTransition();
             setTimeout(function(){
                 game_environment.onFinishedTransition();
-                game_environment = new Environment_Dialogue(new Prawnking);
-                game_environment.setup();
+                setToEnv(envids.DIALOGUE,new Prawnking);
             }, 500);
         }
 
@@ -29,8 +44,7 @@ class Environment_ChooseCityopia extends Environment {
             game_environment.onTransition();
             setTimeout(function(){
                 game_environment.onFinishedTransition();
-                game_environment = new Environment_Dialogue(new Dave);
-                game_environment.setup();
+                setToEnv(envids.DIALOGUE,new Dave);
             }, 500);
         }
 
@@ -50,7 +64,7 @@ class Environment_ChooseCityopia extends Environment {
     }
 
     onFinishedTransition() {
-        this.destroyAll();
+        game_environment.destroyAll();
     }
 
 }
