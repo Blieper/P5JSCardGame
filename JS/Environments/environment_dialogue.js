@@ -112,7 +112,7 @@ class Environment_Dialogue extends Environment {
         }
       
         gameplay_replerp = 1;
-        gameplay_reputation += changeAmount;
+        gameplay_character.reputation += changeAmount;
     }
 
 }
