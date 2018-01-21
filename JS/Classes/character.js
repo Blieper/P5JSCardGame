@@ -3,6 +3,8 @@ class Character {
 
     constructor () {
         this.event = []; 
+        this.reputation = 0;
+        this.reputationNeeded = 100;
     }
 
 }
