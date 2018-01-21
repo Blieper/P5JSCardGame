@@ -1,4 +1,4 @@
-class Environment_ChooseCityopia extends Environment {
+class Environment_ChooseCulturia extends Environment {
     
     constructor () {
         super();
@@ -8,18 +8,12 @@ class Environment_ChooseCityopia extends Environment {
         this.backButton.text = "back";
         this.backButton.anchorX = 0;
         this.backButton.anchorY = 1;
-        
-        // this.time   = new Clickable(0,100,100,100,anchorTypes.TOP);
-        // this.time.text        = gameplay_timestring;
-        // this.time.textSize    = 48;
-        // this.time.drawFrame   = false;
-        // this.time.isClickable = false;
 
         this.backButton.onUnpressed = function () {
             setToEnv(envids.MAP);
         }
 
-        this.cardPrawnKing  = new Card("King Prawn");
+        this.cardPrawnKing  = new Card("King Culture");
         this.cardPeasant1   = new Card("Dave"); 
         
         let oldPressed = this.cardPrawnKing.onUnpressed;

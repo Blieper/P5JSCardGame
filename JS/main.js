@@ -7,6 +7,8 @@ let card_height = 200;
 let gameplay_reputation = 0;
 let gameplay_time = 12 * 60;
 let gameplay_timestring = "12:00";
+let gameplay_city = -1;
+let gameplay_completedCities = [];
 
 //
 
@@ -38,6 +40,7 @@ let envids = {
   MAP:            1,   
   DIALOGUE:       2,  
   CITY1:          3, 
+  CITY2:          4,   
 };
 
 function setToEnv (id, character) {
@@ -50,18 +53,21 @@ function setToEnv (id, character) {
   }
 
   switch (id) {
-    case 0:
+    case envids.MAIN:
       game_environment = new Environment_Mainmenu();
     break;
-    case 1:
+    case envids.MAP:
       game_environment = new Environment_Map();
     break;
-    case 2:
+    case envids.DIALOGUE:
       game_environment = new Environment_Dialogue(character);
     break;
-    case 3:
+    case envids.CITY1:
       game_environment = new Environment_ChooseCityopia();
     break;
+    case envids.CITY2:
+      game_environment = new Environment_ChooseCulturia();
+    break;    
   }
 
   game_environment.setup();
@@ -99,6 +105,6 @@ function draw() {
   }
 }
 
-// function windowResized() {
-//   resizeCanvas(windowWidth, windowHeight);
-// }
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+}

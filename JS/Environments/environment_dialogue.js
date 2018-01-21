@@ -74,9 +74,9 @@ class Environment_Dialogue extends Environment {
                         }
                 
                         // Extra optional function
-                        if (gameplay_character.event[index].options[i].f != undefined) {
-                            gameplay_character.event[index].options[i].f();
-                        }
+                        // if (gameplay_character.event[index].options[i].f != undefined) {
+                        //     gameplay_character.event[index].options[i].f();
+                        // }
                     }
             
                     // Position and move the cards 
@@ -89,11 +89,33 @@ class Environment_Dialogue extends Environment {
                     gameplay_answerCards[i].moveTo(x, y, 0.15);
                 }
             }else{
-                setTimeout(function(){
+                if (gameplay_character.reputation >= gameplay_character.reputationNeeded) {
+                    gameplay_card.text = gameplay_character.convincedMessage;
+                    console.log(gameplay_city);
+                    gameplay_completedCities[gameplay_city] = true;
+                }
+            
+                // OK card
+                let okCard = new Card("OK");
+
+                let x = width / 2;
+                let y = height - 200;
+        
+                okCard.x = x;
+                okCard.y = y + 350;
+        
+                okCard.moveTo(x, y, 0.15);
+
+                let oldPressed = okCard.onUnpressed;
+    
+                okCard.onUnpressed = function () {
+                    oldPressed();
+
                     gameplay_card.delete();
+                    this.delete();
                     setToEnv(envids.CITY1);
                     addTime(gameplay_character.conversationTime);
-                }, 1500);     
+                }
             }
         }
         else{

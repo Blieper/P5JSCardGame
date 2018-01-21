@@ -3,6 +3,10 @@ class Prawnking extends Character {
     constructor () {
         super();
 
+        this.convincedMessage = "Alright, I see you're a worthy new king! But I need to get back to doing prawn stuff so goodbye.";
+        this.isVIP = true;
+        this.VIPName = "prawnking";
+
         // Starting message
 
         this.event[1] = { text: "Hello young prince.",
