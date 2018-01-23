@@ -3,11 +3,11 @@ class Environment_Map extends Environment {
         constructor () {
             super();
     
-            this.buttonCityopia = new Clickable(500,220,50,50);
-            this.buttonCityopia.text = "Cityopia";
+            this.buttonCityopia = new Clickable(500,220,85,85);
+            this.buttonCityopia.text = "Chisinau";
 
             if (gameplay_completedCities[0] == true) {
-                this.buttonCityopia.text = this.buttonCityopia.text + "\n\u2713";
+                this.buttonCityopia.text = this.buttonCityopia.text + "\nCompleted!";
             }
 
             this.buttonCityopia.onlyUnpressOverButton  = true;  
@@ -28,11 +28,11 @@ class Environment_Map extends Environment {
                 this.delete();
             }
     
-            this.buttonCulturia = new Clickable(175,400,50,50);
+            this.buttonCulturia = new Clickable(175,400,85,85);
             this.buttonCulturia.text = "Culturia";
 
             if (gameplay_completedCities[1] == true) {
-                this.buttonCulturia.text = this.buttonCulturia.text + "\n\u2713";
+                this.buttonCulturia.text = this.buttonCulturia.text + "\nCompleted!";
             }
 
             this.buttonCulturia.onlyUnpressOverButton  = true;  
@@ -53,7 +53,7 @@ class Environment_Map extends Environment {
                 this.delete();
             }
 
-            this.mapImage = loadImage('images/testmap.png');
+            this.mapImage = loadImage('Assets/Images/Map.png');
 
             this.blur = 0;
             this.inTransition = false;
@@ -84,7 +84,13 @@ class Environment_Map extends Environment {
             //     }                
             // }
 
-            image(this.mapImage,0,0);
+            this.buttonCityopia.x = width * 0.6;
+            this.buttonCityopia.y = height * 0.15;
+
+            this.buttonCulturia.x = width * 0.65;
+            this.buttonCulturia.y = height * 0.8;
+
+            image(this.mapImage,0,0,width,height);
         }
         
         onFinishedTransition() {

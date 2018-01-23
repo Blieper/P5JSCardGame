@@ -29,7 +29,7 @@ class Clickable {
         this.anchorY    = 0.5;
 
         this.drawFrame  = true;
-        this.textSize   = 12;
+        this.textSize   = 18;
 
         this.paused = false;
 
@@ -50,10 +50,10 @@ class Clickable {
         this.targetX = 0;
         this.targetY = 0;
 
-        this.textPaddingUp      = 2;
-        this.textPaddingDown    = 2;
-        this.textPaddingLeft    = 2;
-        this.textPaddingRight   = 2;
+        this.textPaddingUp      = 0;
+        this.textPaddingDown    = 0;
+        this.textPaddingLeft    = 0;
+        this.textPaddingRight   = 0;
 
         this.isPressed      = false;
         this.onPressDown    = false;
@@ -85,6 +85,7 @@ class Clickable {
 
         fill(10);
         strokeWeight(0);
+        textFont(font_main);        
         textAlign(CENTER, CENTER);
         textSize(this.textSize * this.hoverScaler);
         text(this.text,
@@ -221,6 +222,9 @@ class Clickable {
     }
 
     onUnpressed() {
+        if (!game_muted) {        
+            sound_btnClick.play();
+        }
         return;
     }
 
@@ -230,6 +234,9 @@ class Clickable {
 
     onHovered() {
         //responsiveVoice.speak(this.text,"Dutch Female",{pitch: 1});
+        if (!game_muted) {
+            sound_btnHover.play();
+        }
         return;
     }
 

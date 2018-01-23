@@ -1,8 +1,8 @@
 
 //global gameplay variables
 
-let card_width = 110;
-let card_height = 200;
+let card_width = 150;
+let card_height = 300;
 
 let gameplay_reputation = 0;
 let gameplay_time = 12 * 60;
@@ -21,7 +21,16 @@ let gameplay_repchange;
 let game_environment;
 let game_prevenv;
 let game_paused = false;
-let game_muted = false;
+let game_muted = true;
+
+let font_main;
+
+let sound_btnHover;
+let sound_btnClick;
+let sound_songs = [];
+let sound_lastSongs = [0];
+let sound_lastId = 0;
+let sound_currentSong;
 
 let anchorTypes = {
   TOPLEFT:        0,
@@ -73,6 +82,52 @@ function setToEnv (id, character) {
   game_environment.setup();
 }
 
+function randomMusic () {
+  if (game_muted) {
+      for (let i = 0; i < sound_songs.length; i++) {
+          sound_songs[i].setVolume(0);
+      }
+  } else {
+      for (let i = 0; i < sound_songs.length; i++) {
+          sound_songs[i].setVolume(1);
+      }                    
+  }
+
+  setTimeout(function(){
+ 
+    if (sound_lastSongs.length === sound_songs.length) {
+      sound_lastSongs.length = 0;
+      sound_lastSongs.push(sound_lastId);
+    }
+
+    let id = Math.floor(Math.random() * sound_songs.length);
+    let idOf = sound_lastSongs.indexOf(id);
+
+    while (idOf >= 0) {
+      id = Math.floor(Math.random() * sound_songs.length);
+      idOf = sound_lastSongs.indexOf(id);
+    }
+
+    sound_songs[id].play();
+    sound_currentSong = sound_songs[id];
+    sound_lastId = id;
+    sound_lastSongs.push(id);
+
+    randomMusic();
+
+  }, sound_currentSong.duration() * 1000);
+}
+
+function preload() {
+  font_main = loadFont("Assets/Fonts/MorrisRomanBlack.ttf");
+  sound_btnHover = loadSound("Assets/Sounds/Foley/ButtonHover.mp3");
+  sound_btnClick = loadSound("Assets/Sounds/Foley/ButtonClick.mp3");  
+
+  sound_songs.push(loadSound("Assets/Sounds/Music/Song1.mp3"));
+  sound_songs.push(loadSound("Assets/Sounds/Music/Song2.mp3"));
+  sound_songs.push(loadSound("Assets/Sounds/Music/Song3.mp3"));
+}
+
 function addTime (minutes) {
   gameplay_time += minutes;
 
@@ -83,17 +138,21 @@ function addTime (minutes) {
 }
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(innerWidth, innerHeight);
 
   setToEnv(envids.MAIN);
+
+  sound_songs[0].play();
+  sound_currentSong = sound_songs[0];
+  randomMusic();
 }
 
 function draw() {
   clear();
   cursor(ARROW);
 
+  // Update invironment if it isn't paused
   if (!game_paused) {
-    // Update environment 
     game_environment.update();
   }
 
@@ -106,5 +165,5 @@ function draw() {
 }
 
 function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
+  resizeCanvas(innerWidth, innerHeight);
 }

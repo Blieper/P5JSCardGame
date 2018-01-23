@@ -4,7 +4,7 @@ class Environment_ChooseCityopia extends Environment {
         super();
 
         // Back button
-        this.backButton = new Clickable(50,-50,50,50,anchorTypes.BOTTOMLEFT);
+        this.backButton = new Clickable(50,-50,75,50,anchorTypes.BOTTOMLEFT);
         this.backButton.text = "back";
         this.backButton.anchorX = 0;
         this.backButton.anchorY = 1;
@@ -14,15 +14,16 @@ class Environment_ChooseCityopia extends Environment {
         // this.time.textSize    = 48;
         // this.time.drawFrame   = false;
         // this.time.isClickable = false;
+        let oldPressed = this.backButton.onUnpressed;
 
         this.backButton.onUnpressed = function () {
+            oldPressed();
             setToEnv(envids.MAP);
         }
 
         this.cardPrawnKing  = new Card("King Prawn");
         this.cardPeasant1   = new Card("Dave"); 
-        
-        let oldPressed = this.cardPrawnKing.onUnpressed;
+
         this.cardPrawnKing.onUnpressed = function () {
             oldPressed();
 
@@ -33,8 +34,6 @@ class Environment_ChooseCityopia extends Environment {
             }, 500);
         }
 
-                
-        oldPressed = this.cardPeasant1.onUnpressed;
         this.cardPeasant1.onUnpressed = function () {
             oldPressed();
 
@@ -47,7 +46,7 @@ class Environment_ChooseCityopia extends Environment {
 
         for (let i = 0; i <= cards.length - 1; i++) {
             cards[i].anchor = anchorTypes.CENTER;
-            cards[i].x = -(cards.length * -0.5 + (i + 0.5)) * 130;
+            cards[i].x = -(cards.length * -0.5 + (i + 0.5)) * card_width * 1.5;
             cards[i].y = -100 * (i+1) - height/2;  
             
             cards[i].moveTo(cards[i].x,0,0.35 * (i+1) / cards.length)

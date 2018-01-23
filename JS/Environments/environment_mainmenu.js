@@ -48,8 +48,14 @@ class Environment_Mainmenu extends Environment {
         this.cl_burden.isClickable = false;   
 
         setTimeout(function(){game_environment.cl_burden.moveTo(250,150,0.5)}, 750);
+        
+        //this.mapImage = loadImage('Assets/Images/Map.png');
     }
     
+    update () {
+        //image(this.mapImage,0,0,width,height);
+    }
+
     onTransition () {
         this.cl_seat.moveTo(-220,-500,0.02);
         this.cl_of.moveTo(-30,-500,0.02);
