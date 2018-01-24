@@ -43,7 +43,7 @@ class Environment_Dialogue extends Environment {
             //responsiveVoice.speak(gameplay_card.text);
         
             let x = width / 2;
-            let y = 150;
+            let y = card_height * 0.65;
         
             gameplay_card.x = x;
             gameplay_card.y = y - 350;
@@ -69,14 +69,7 @@ class Environment_Dialogue extends Environment {
                 
                         if (gameplay_character.event[index].options[i].rep) {
                             game_environment.changeReputation(gameplay_character.event[index].options[i].rep);
-                        } else {
-                            game_environment.changeReputation(0);
-                        }
-                
-                        // Extra optional function
-                        // if (gameplay_character.event[index].options[i].f != undefined) {
-                        //     gameplay_character.event[index].options[i].f();
-                        // }
+                        } 
                     }
             
                     // Position and move the cards 

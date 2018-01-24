@@ -23,7 +23,7 @@ class Environment_ChooseCityopia extends Environment {
             setToEnv(envids.MAP);
         }
 
-        this.cardPrawnKing  = new Card("King Prawn");
+        this.cardPrawnKing  = new Card("Lord Stefan");
         this.cardPeasant1   = new Card("Ion"); 
 
         this.cardPrawnKing.onUnpressed = function () {
@@ -32,7 +32,7 @@ class Environment_ChooseCityopia extends Environment {
             game_environment.onTransition();
             setTimeout(function(){
                 game_environment.onFinishedTransition();
-                setToEnv(envids.DIALOGUE,new Prawnking);
+                setToEnv(envids.DIALOGUE,new MDLord);
             }, 500);
         }
 

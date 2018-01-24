@@ -24,21 +24,21 @@ class Environment_Credits extends Environment {
         textAlign(LEFT);
         textSize(24);
         textFont(font_main);
-        text(
-            "Yoran Mandema\n\tGame engine\n\tMusic\n\tSound Design\n\tGame Design"          
-        ,width/8,height/8,width * 0.75,200);
+        // text(
+        //     "Yoran Mandema\n\tGame engine\n\tMusic\n\tSound Design\n\tGame Design"          
+        // ,width/8,height/8,width * 0.75,200);
 
-        text(
-            "Thomas Kraak\n\tArt\n\tStory\n\tGame Design"          
-        ,width/8 + 350,height/8,width * 0.75,200);
+        // text(
+        //     "Thomas Kraak\n\tArt\n\tStory\n\tGame Design"          
+        // ,width/8 + 350,height/8,width * 0.75,200);
 
-        text(
-            "Cyril Ozhoga\n\tArt\n\tStory\n\tGame Design"          
-        ,width/8 + 750,height/8,width * 0.75,200);
+        // text(
+        //     "Cyril Ozhoga\n\tArt\n\tStory\n\tGame Design"          
+        // ,width/8 + 750,height/8,width * 0.75,200);
 
-        text(
-            "Teun Vogt\n\tStory\n\tGame Design"          
-        ,width/8 + 1100,height/8,width * 0.75,200);
+        // text(
+        //     "Teun Vogt\n\tStory\n\tGame Design"          
+        // ,width/8 + 1100,height/8,width * 0.75,200);
 
     }
 

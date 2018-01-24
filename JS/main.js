@@ -22,7 +22,7 @@ let gameplay_repchange;
 let game_environment;
 let game_prevenv;
 let game_paused = false;
-let game_muted = true;
+let game_muted = false;
 
 let font_main;
 

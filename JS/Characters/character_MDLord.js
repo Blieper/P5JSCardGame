@@ -47,16 +47,16 @@ class MDLord extends Character {
              //Yes, sure I would like to try Mamaliga
              this.event[21] = { text: "Luckily court cooks prepared Mamaliga just for you.",
              options: [    
-             { response: "That would be a pleasure to try it. Right now I want to discuss national hollidays that Cuturia is going to inherit from Moldova if it becomes part of my kingdom.", next: 41, rep: 5 },
-             { response: "No thank you. Right now I want to discuss national hollidays that Cuturia is going to inherit from Moldova if it becomes part of my kingdom.", next: 41, rep: 2 },
+             { response: "That would be a pleasure to try it. Right now I want to discuss national holidays that Cuturia is going to inherit from Moldova if it becomes part of my kingdom.", next: 41, rep: 5 },
+             { response: "No thank you. Right now I want to discuss national holidays that Cuturia is going to inherit from Moldova if it becomes part of my kingdom.", next: 41, rep: 2 },
              ]}; 
              
              //That would be a pleasure to try it. Right now I want to discuss national hollidays that Cuturia is going to inherit from Moldova if it becomes part of my kingdom.
              this.event[41] = { text: "You are completely right. Tell me what would be the national hollydays if Moldova joins your kingdom?",
              options: [    
-             { response: "New Year on 31 of December and Christmas on 7th of January", next: 42, rep: 5 },
-             { response: "New Year on 31 of December and Christmas on 25th of December", next: 43, rep: 1 },
-             { response: "What if we just forget about your hollidays and keep only Culturia hollidays, it's better in my opinion.", next: 44, rep: -5 },
+             { response: "New Year on the 31st of December and Christmas on the 7th of January", next: 42, rep: 5 },
+             { response: "New Year on the 31st of December and Christmas on the 25th of December", next: 43, rep: 1 },
+             { response: "What if we just forget about your holidays and keep only Culturia holidays, it's better in my opinion.", next: 66, rep: -5 },
              ]}; 
 
              //New Year on 31 of December and Christmas on 7th of January
@@ -69,12 +69,16 @@ class MDLord extends Character {
              this.event[43] = { text: "You completely forgot about our Christmas which is on 7th of January!",
              options: [    
                 { response: "No need to pay attention to your Christmas, we've got our Christmas which is better", next: 66, rep: -20 },
-                { response: "Oh, yes and 7th of January is going to be a holliday too. I hope you accept joining Moldova to Culturia? ", next: 50, rep: 1 },
+                { response: "Oh, yes and 7th of January is going to be a holiday too. I hope you accept joining Moldova to Culturia? ", next: 50, rep: 1 },
              ]}; 
 
              this.event[66] = { text: "You don't respect our culture at all, go away and turn back only when you get more knowledge about Moldovian culture."}
              
              this.event[50] = { text: "I don't think you are ready to become the ruler of Moldova, get back when you get some more knowledge about our culture."}
            
+    }
+
+    update () {
+        image(image_lord,0,0,width, width/1920 * 1080);
     }
 }
