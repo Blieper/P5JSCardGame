@@ -9,21 +9,6 @@ class Environment_Dialogue extends Environment {
     setup () {
         this.setToNewCard(1);        
     }
-
-    update () {
-        // Reputation change
-        if (gameplay_replerp > 0.1) {
-            gameplay_replerp += -gameplay_replerp * 0.0125;
-
-            if (gameplay_replerp < 0.05) {
-                gameplay_replerp = 0;
-            }
-
-            textAlign(CENTER, CENTER);
-            textSize(48 * gameplay_replerp);
-            text(gameplay_repchange, width / 2, height / 2);
-        }       
-    }
     
     setToNewCard(index) {
         // Delete all previous cards

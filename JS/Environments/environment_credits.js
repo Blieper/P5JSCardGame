@@ -2,7 +2,7 @@ class Environment_Credits extends Environment {
     constructor () {
         super();
 
-        this.startButton = new Clickable(0,-100,200,50,anchorTypes.BOTTOM);
+        this.startButton = new Clickable(0,0,200,50,anchorTypes.CENTER);
         this.startButton.text = "PLAY AGAIN";
         this.startButton.onlyUnpressOverButton  = true;
 
