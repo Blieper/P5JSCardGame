@@ -9,7 +9,15 @@ class Environment_Endscreen extends Environment {
         );
 
         this.story.push(
-            "You're now known as the worthy King of Culturia!"
+            "You have mended the seams of Culturia's potential collapse..."
+        );
+
+        this.story.push(
+            "The burden that was once part of what is now your throne, has now been withered away..."
+        );
+
+        this.story.push(
+            "Culturia has been restored!"
         );
 
         this.startButton = new Clickable(0,-100,200,50,anchorTypes.BOTTOM);
@@ -38,7 +46,7 @@ class Environment_Endscreen extends Environment {
         image(image_main,0,0,width,width/1920 * 1080);
  
         if (this.story[this.currentStory] != undefined) {
-            textAlign(LEFT);
+            textAlign(CENTER);
             textSize(24);
             textFont(font_main);
             text(this.story[this.currentStory],width/8,height/8,width * 0.75,height * 0.75);
