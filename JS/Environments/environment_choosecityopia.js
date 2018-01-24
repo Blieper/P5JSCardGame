@@ -24,7 +24,7 @@ class Environment_ChooseCityopia extends Environment {
         }
 
         this.cardPrawnKing  = new Card("King Prawn");
-        this.cardPeasant1   = new Card("HAHSAHHF"); 
+        this.cardPeasant1   = new Card("Ion"); 
 
         this.cardPrawnKing.onUnpressed = function () {
             oldPressed();

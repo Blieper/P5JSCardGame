@@ -33,30 +33,51 @@ class Dave extends Character {
                 this.event[16] = { text: "If you say so milord, anything else I can help with?",
                 options: [    
                 { response: "yes, I'd like to ask a few more questions", next: 17 },
-                { response: "No it's quite alright, i'll be taking my leave now", next: 12 },
+                { response: "No it's quite alright, I'll be taking my leave now", next: 12 },
                 ]}; 
 
                 //few more questions
                 this.event[17] = { text: "What would you like to ask milord?",
                 options: [    
                 { response: "How old is this kingdom?", next: 19 },
-                { response: "How long ago was this town created?", next: 17 },
-                { response: "No it's quite alright, i'll be taking my leave now", next: 12 },
+                { response: "How long ago was this town founded?", next: 21 },
+                { response: "What is this region called?", next: 22 },
+                { response: "No it's quite alright, I'll be taking my leave now", next: 12 },
                 ]}; 
-
+                
+                //Fries, sounds mighty interesting I say
                 this.event[111] = { text: "Thank you milord",
                 options: [    
-                { response: "Not a problem citizen.", next: 16 },
+                { response: "Not a problem citizen", next: 16 },
                 {response : "I'll be on my way now", next: 12},
                 ]}; 
 
                
-
+                //How old is this kingdom?
                 this.event[19] = { text: "Well milord, we're not quite sure. But our historians believe it's existed for at least twothousand and fourhundred years",
                 options: [    
-                { response: "", next: 19 },
-                { response: "How long ago was this town created?", next: 17 },
-                { response: "No it's quite alright, i'll be taking my leave now", next: 12 },
+                { response: "Mighty interesting, could I ask another question?", next: 17 },
+                { response: "Thank you for telling me this, I'll be on my way now.", next: 12 },
+                ]}; 
+
+                //how old is this city?
+                this.event[21] = { text: "Historians believe this city is at least over 1200 years old milord",
+                options: [    
+                { response: "Mighty interesting, could I ask another question?", next: 17 },
+                { response: "Thank you for telling me this, I'll be on my way now.", next: 12 },
+                ]}; 
+
+                //What is this region called?
+                this.event[22] = { text: "This region is called Fryslan milord" ,
+                options: [    
+                { response: "Why is it called that?", next: 23 },
+                { response: "Thank you for telling me this, I'll be on my way now", next: 12 },
+                ]}; 
+
+                this.event[23] = { text: "They say that in ancient times a man named Friso settled in the region, which is where the name comes from" ,
+                options: [    
+                { response: "Thank you, i've still got a few more questions", next: 17 },
+                { response: "Thank you for telling me this, I'll be on my way now.", next: 12 },
                 ]}; 
 
 

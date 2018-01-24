@@ -1,8 +1,8 @@
 
 //global gameplay variables
 
-let card_width = 150;
-let card_height = 300;
+let card_width = 165;
+let card_height = 320;
 
 let gameplay_reputation = 0;
 let gameplay_time = 12 * 60;
