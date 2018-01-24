@@ -61,7 +61,7 @@ class Dave extends Character {
                 ]}; 
 
                 //how old is this city?
-                this.event[21] = { text: "Historians believe this city is at least over 1200 years old milord",
+                this.event[21] = { text: "Historians believe this town is at least over 1200 years old milord",
                 options: [    
                 { response: "Mighty interesting, could I ask another question?", next: 17 },
                 { response: "Thank you for telling me this, I'll be on my way now.", next: 12 },
