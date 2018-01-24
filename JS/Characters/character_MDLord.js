@@ -79,6 +79,22 @@ class MDLord extends Character {
     }
 
     update () {
+        image(image_throne,0,0,width,width/1920 * 1080);
         image(image_lord,0,0,width, width/1920 * 1080);
+
+        
+        // Reputation change
+        if (gameplay_replerp > 0.1) {
+            gameplay_replerp += -gameplay_replerp * 0.0125;
+
+            if (gameplay_replerp < 0.05) {
+                gameplay_replerp = 0;
+            }
+
+            textAlign(CENTER, CENTER);
+            textSize(48 * gameplay_replerp);
+            text(gameplay_repchange, width / 2, height / 2);
+        }   
+        
     }
 }

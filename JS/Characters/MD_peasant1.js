@@ -58,6 +58,7 @@ class MDPeasant1 extends Character {
     }
 
     update () {
+        image(image_room,0,0,width,width/1920 * 1080);
         image(image_peasant,0,0,width, width/1920 * 1080);
     }
 }

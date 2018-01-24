@@ -15,7 +15,7 @@ class Environment_ChooseCulturia extends Environment {
             setToEnv(envids.MAP);
         }
 
-        this.cardPrawnKing  = new Card("King Culture");
+        this.cardPrawnKing  = new Card("Lord Aaiolt");
         this.cardPeasant1   = new Card("Koert"); 
         
         let oldPressed = this.cardPrawnKing.onUnpressed;
@@ -49,7 +49,11 @@ class Environment_ChooseCulturia extends Environment {
             cards[i].moveTo(cards[i].x,0,0.35 * (i+1) / cards.length)
         }
     }
-    
+
+    update () {
+        image(image_city,0,0,width,width/1920 * 1080);
+    }
+
     onTransition () {
         for (let i = 0; i <= cards.length - 1; i++) {
             cards[i].moveTo(cards[i].x,-100 * (i+1) - height/2,0.35 * (i+1) / cards.length);

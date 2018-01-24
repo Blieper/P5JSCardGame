@@ -36,6 +36,9 @@ let sound_currentSong;
 let image_main;
 let image_peasant;
 let image_lord;
+let image_city;
+let image_throne;
+let image_room;
 
 let anchorTypes = {
   TOPLEFT:        0,
@@ -143,6 +146,9 @@ function preload() {
   image_main    = loadImage('Assets/Images/tomb_king.png');
   image_peasant = loadImage('Assets/Images/peasant.png');
   image_lord    = loadImage('Assets/Images/lord.png');
+  image_throne  = loadImage('Assets/Images/ThroneRoom.jpeg');
+  image_room    = loadImage('Assets/Images/Room.jpeg');
+  image_city    = loadImage('Assets/Images/City.jpeg');
 
   sound_songs.push(loadSound("Assets/Sounds/Music/Song1.mp3"));
   sound_songs.push(loadSound("Assets/Sounds/Music/Song2.mp3"));
