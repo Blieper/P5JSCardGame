@@ -2,9 +2,9 @@ class MDPeasant1 extends Character {
     constructor () {
         super();
        
-        this.event[1] = { text:"Hello DOMNUL('domnul), it's always nice to see new faces in our city. What brought you here?",
+        this.event[1] = { text:"Hello Domnul('domnul), it's always nice to see new faces in our city. What brought you here?",
         options: [    
-        { response: "DOMNUL, what does it mean?", next: 11},
+        { response: "Domnul, what does it mean?", next: 11},
         ]}; 
 
             // DOMNUL, what does it mean?
@@ -14,7 +14,7 @@ class MDPeasant1 extends Character {
             ]}; 
 
              //Interesting, I will remember this, could you give me some more information about moldavian culture?
-             this.event[12] = { text: "Sure, DOMNUL, ask me whatever you want about moldavian cuture",
+             this.event[12] = { text: "Sure, Domnul, ask me whatever you want about moldavian cuture",
              options: [    
              { response: "Could you tell me how moldavian people meet guests?", next: 31},
              { response: "Please, tell me about moldavian national food and drinks", next: 41},
@@ -37,7 +37,7 @@ class MDPeasant1 extends Character {
            
 
                 //Please, tell me about moldavian national food and drinks
-                this.event[41] = { text: "Moldavian people drink homemade wine and eat MAMALIGA, which is a national moldavian dish.",
+                this.event[41] = { text: "Moldavian people drink homemade wine and eat Mamaliga, which is a national moldavian dish.",
                 options: [    
                 { response: "Got it!", next: 12},
                 ]}; 
