@@ -2,36 +2,77 @@ class Dave extends Character {
     constructor () {
         super();
 
-        this.event[1] = { text: "Ay bitch",
+        this.event[1] = { text: "goendei my lord",
         options: [    
-        { response: "Ay bitch", next: 11, rep: 10000 },
-        { response: "U taLKIN to me?111???!?!?!1 unk", next: 12, rep: -10000 },
-        ]}; 
+        { response: "what might 'goendei' mean?", next: 11 },
+        { response: "I do not wish to talk right now", next: 12 },
+        ]};  
 
-            // ay bitch
-            this.event[11] = { text: "wazzup man",
+            //what might 'goendei'' mean?
+            this.event[11] = { text: "It means good day in our language my liege",
             options: [    
-            { response: "yo mama's up", next: 14, rep: 10000 },
-            { response: "You fucking normie, doritofarmer lookin'ass", next: 16, rep: -10000 },
+            { response: "What is your language called?", next: 14 },
+            { response: "What an odd way of saying good day", next: 15 },
             ]}; 
 
-             //You fucking normie, doritofarmer lookin'ass
-             this.event[16] = { text: "What did you just call me you little bitch",
-             options: [    
-             { response: "lol jk dude, just a prank.", next: 17, rep: 10000 },
-             { response: "I called you a normie you little faggot dude", next: 12, rep: -10000 },
-             ]}; 
- 
+                //What is your language called?
+                this.event[14] = { text: "Fries, milord",
+                options: [    
+                { response: "Sounds odd", next: 15 },
+                { response: "Fries, sounds mighty interesting I say", next: 111 },
+                {response : "Thank you for telling me this, but i'll be on my way now", next: 12},
+                ]}; 
+
+                //odd
+                this.event[15] = { text: "Why is that milord?",
+                options: [    
+                { response: "I don't know", next: 16 },
+                { response: "It just sounds quite odd", next: 16 },
+                ]}; 
+
+                this.event[16] = { text: "If you say so milord, anything else I can help with?",
+                options: [    
+                { response: "yes, I'd like to ask a few more questions", next: 17 },
+                { response: "No it's quite alright, i'll be taking my leave now", next: 12 },
+                ]}; 
+
+                //few more questions
+                this.event[17] = { text: "What would you like to ask milord?",
+                options: [    
+                { response: "How old is this kingdom?", next: 19 },
+                { response: "How long ago was this town created?", next: 17 },
+                { response: "No it's quite alright, i'll be taking my leave now", next: 12 },
+                ]}; 
+
+                this.event[111] = { text: "Thank you milord",
+                options: [    
+                { response: "Not a problem citizen.", next: 16 },
+                {response : "I'll be on my way now", next: 12},
+                ]}; 
+
+               
+
+                this.event[19] = { text: "Well milord, we're not quite sure. But our historians believe it's existed for at least twothousand and fourhundred years",
+                options: [    
+                { response: "", next: 19 },
+                { response: "How long ago was this town created?", next: 17 },
+                { response: "No it's quite alright, i'll be taking my leave now", next: 12 },
+                ]}; 
+
+
+
+                
+
+        
+
+                //end conversation
+            this.event[12] = { text: "Very well sire"};   
 
 
            
-            //yo mama's up
-            this.event[14] = { text: "Aw shit dude, you fucking got me",
-            options: [    
-            { response: "ik dude you got got, famsquad", next: 15, rep: 10000 },
-            { response: "You fucking normie, doritofarmer lookin'ass", next: 12, rep: -10000 },
-            ]}; 
+    }
 
-           
+    update () {
+        image(image_peasant,0,0,width, width/1920 * 1080);
     }
 }

@@ -8,6 +8,7 @@ let gameplay_reputation = 0;
 let gameplay_time = 12 * 60;
 let gameplay_timestring = "12:00";
 let gameplay_city = -1;
+let gameplay_currentCity = -1;
 let gameplay_completedCities = [];
 
 //
@@ -32,6 +33,10 @@ let sound_lastSongs = [0];
 let sound_lastId = 0;
 let sound_currentSong;
 
+let image_main;
+let image_peasant;
+let image_lord;
+
 let anchorTypes = {
   TOPLEFT:        0,
   LEFT:           1,  
@@ -50,6 +55,9 @@ let envids = {
   DIALOGUE:       2,  
   CITY1:          3, 
   CITY2:          4,   
+  INTRO:          5,
+  END:            6,
+  CREDITS:        7,
 };
 
 function setToEnv (id, character) {
@@ -76,7 +84,16 @@ function setToEnv (id, character) {
     break;
     case envids.CITY2:
       game_environment = new Environment_ChooseCulturia();
-    break;    
+    break; 
+    case envids.INTRO:
+      game_environment = new Environment_Introduction();
+    break;
+    case envids.END:
+      game_environment = new Environment_Endscreen();
+    break;
+    case envids.CREDITS:
+      game_environment = new Environment_Credits();
+    break;
   }
 
   game_environment.setup();
@@ -119,9 +136,13 @@ function randomMusic () {
 }
 
 function preload() {
-  font_main = loadFont("Assets/Fonts/MorrisRomanBlack.ttf");
-  sound_btnHover = loadSound("Assets/Sounds/Foley/ButtonHover.mp3");
-  sound_btnClick = loadSound("Assets/Sounds/Foley/ButtonClick.mp3");  
+  font_main       = loadFont("Assets/Fonts/MorrisRomanBlack.ttf");
+  sound_btnHover  = loadSound("Assets/Sounds/Foley/ButtonHover.mp3");
+  sound_btnClick  = loadSound("Assets/Sounds/Foley/ButtonClick.mp3");  
+
+  image_main    = loadImage('Assets/Images/tomb_king.png');
+  image_peasant = loadImage('Assets/Images/peasant.png');
+  image_lord    = loadImage('Assets/Images/lord.png');
 
   sound_songs.push(loadSound("Assets/Sounds/Music/Song1.mp3"));
   sound_songs.push(loadSound("Assets/Sounds/Music/Song2.mp3"));
@@ -140,6 +161,8 @@ function addTime (minutes) {
 function setup() {
   createCanvas(innerWidth, innerHeight);
 
+  console.log(innerWidth);
+
   setToEnv(envids.MAIN);
 
   sound_songs[0].play();
@@ -154,6 +177,10 @@ function draw() {
   // Update invironment if it isn't paused
   if (!game_paused) {
     game_environment.update();
+
+    if (gameplay_character) {
+      gameplay_character.update();
+    }
   }
 
   // Update all clickables

@@ -40,5 +40,9 @@ class Prawnking extends Character {
             this.event[1112] = { text: "Go away! Unless you get some knowledge about our culture you won't become our ruler!",
            };      
     }
+
+    update () {
+        image(image_lord,0,0,width, width/1920 * 1080);
+    }
 }
         

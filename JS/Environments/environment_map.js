@@ -29,7 +29,7 @@ class Environment_Map extends Environment {
             }
     
             this.buttonCulturia = new Clickable(175,400,85,85);
-            this.buttonCulturia.text = "Culturia";
+            this.buttonCulturia.text = "Leeuwarden";
 
             if (gameplay_completedCities[1] == true) {
                 this.buttonCulturia.text = this.buttonCulturia.text + "\nCompleted!";

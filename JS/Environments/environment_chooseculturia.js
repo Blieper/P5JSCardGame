@@ -9,12 +9,14 @@ class Environment_ChooseCulturia extends Environment {
         this.backButton.anchorX = 0;
         this.backButton.anchorY = 1;
 
+        gameplay_currentCity = envids.CITY2;
+
         this.backButton.onUnpressed = function () {
             setToEnv(envids.MAP);
         }
 
         this.cardPrawnKing  = new Card("King Culture");
-        this.cardPeasant1   = new Card("Dave"); 
+        this.cardPeasant1   = new Card("Koert"); 
         
         let oldPressed = this.cardPrawnKing.onUnpressed;
         this.cardPrawnKing.onUnpressed = function () {
@@ -41,7 +43,7 @@ class Environment_ChooseCulturia extends Environment {
 
         for (let i = 0; i <= cards.length - 1; i++) {
             cards[i].anchor = anchorTypes.CENTER;
-            cards[i].x = -(cards.length * -0.5 + (i + 0.5)) * 130;
+            cards[i].x = -(cards.length * -0.5 + (i + 0.5)) * card_width * 1.5;
             cards[i].y = -100 * (i+1) - height/2;  
             
             cards[i].moveTo(cards[i].x,0,0.35 * (i+1) / cards.length)
