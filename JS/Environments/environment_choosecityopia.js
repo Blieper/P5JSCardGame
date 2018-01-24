@@ -8,6 +8,8 @@ class Environment_ChooseCityopia extends Environment {
         this.backButton.text = "back";
         this.backButton.anchorX = 0;
         this.backButton.anchorY = 1;
+
+        gameplay_currentCity = envids.CITY1;
         
         // this.time   = new Clickable(0,100,100,100,anchorTypes.TOP);
         // this.time.text        = gameplay_timestring;
@@ -22,7 +24,7 @@ class Environment_ChooseCityopia extends Environment {
         }
 
         this.cardPrawnKing  = new Card("King Prawn");
-        this.cardPeasant1   = new Card("Dave"); 
+        this.cardPeasant1   = new Card("HAHSAHHF"); 
 
         this.cardPrawnKing.onUnpressed = function () {
             oldPressed();
@@ -40,7 +42,7 @@ class Environment_ChooseCityopia extends Environment {
             game_environment.onTransition();
             setTimeout(function(){
                 game_environment.onFinishedTransition();
-                setToEnv(envids.DIALOGUE,new Dave);
+                setToEnv(envids.DIALOGUE,null);
             }, 500);
         }
 

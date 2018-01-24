@@ -10,4 +10,7 @@ class Character {
         this.convincedMessage = '';
     }
 
+    update () {
+
+    }
 }

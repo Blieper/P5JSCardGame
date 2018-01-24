@@ -113,8 +113,22 @@ class Environment_Dialogue extends Environment {
 
                     gameplay_card.delete();
                     this.delete();
-                    setToEnv(envids.CITY1);
-                    addTime(gameplay_character.conversationTime);
+
+                    let trueAmount = 0;
+                    for (let i = 0; i < gameplay_completedCities.length; i++) {
+                        if (gameplay_completedCities[i] === true) {
+                            trueAmount++;
+                        }
+                    }
+
+                    if (trueAmount === 2) {
+                        setToEnv(envids.END);
+                    }else{
+                        setToEnv(gameplay_currentCity);
+                        addTime(gameplay_character.conversationTime);
+                    }
+
+                    gameplay_character = null;
                 }
             }
         }
@@ -122,6 +136,7 @@ class Environment_Dialogue extends Environment {
             setTimeout(function(){
                 setToEnv(envids.CITY1);
                 addTime(gameplay_character.conversationTime);
+                gameplay_character = null;
             }, 1500);      
         }
     }

@@ -14,7 +14,7 @@ class Environment_Mainmenu extends Environment {
             oldPressed();
 
             game_environment.onTransition();
-            setTimeout(setToEnv(envids.MAP), 500);
+            setTimeout(setToEnv(envids.INTRO), 500);
 
             this.delete();
         }
@@ -49,11 +49,11 @@ class Environment_Mainmenu extends Environment {
 
         setTimeout(function(){game_environment.cl_burden.moveTo(250,150,0.5)}, 750);
         
-        //this.mapImage = loadImage('Assets/Images/Map.png');
+        this.mapImage = loadImage('Assets/Images/Map.png');
     }
     
     update () {
-        //image(this.mapImage,0,0,width,height);
+        image(image_main,0,0,width,width/1920 * 1080);
     }
 
     onTransition () {
