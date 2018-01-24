@@ -42,7 +42,7 @@ class Environment_ChooseCityopia extends Environment {
             game_environment.onTransition();
             setTimeout(function(){
                 game_environment.onFinishedTransition();
-                setToEnv(envids.DIALOGUE,null);
+                setToEnv(envids.DIALOGUE,new MDPeasant1);
             }, 500);
         }
 
