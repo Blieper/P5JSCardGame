@@ -4,6 +4,7 @@ class Environment_Dialogue extends Environment {
         super();
 
         gameplay_character = character;
+        gameplay_replerp = 0;
     }
 
     setup () {

@@ -5,7 +5,7 @@ class MDLord extends Character {
 
         this.convincedMessage = 'Young lord, you know a lot about our cuture and now I can trust you. People of Moldova are going to be happy under your rule. ';
 
-        this.event[1] = { text: "Good evening, young prince. I guess you came here the prove me that you deserve to be our ruler. Okay than, I am ready to her you, but first do you want some wine?",
+        this.event[1] = { text: "Good evening, young nobleman. I guess you came here the prove me that you deserve to be our ruler. Okay than, I am ready to her you, but first do you want some wine?",
         options: [    
         { response: "Usually I don't drink, but unless you want me to drink with you, Domnul, than I agree", next: 11, rep:10 },
         { response: "Usually I don't drink, but unless you want me to drink with you, than I agree", next: 11, rep:5 },
@@ -93,7 +93,7 @@ class MDLord extends Character {
 
             textAlign(CENTER, CENTER);
             textSize(48 * gameplay_replerp);
-            text(gameplay_repchange, width / 2, height / 2);
+            //text(gameplay_repchange, width / 2, height / 2);
         }   
         
     }

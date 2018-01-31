@@ -23,8 +23,8 @@ class Environment_ChooseCityopia extends Environment {
             setToEnv(envids.MAP);
         }
 
-        this.cardPrawnKing  = new Card("Lord Stefan");
-        this.cardPeasant1   = new Card("Ion"); 
+        this.cardPrawnKing  = new Card("Lord Stefan\n\n(Have a shot at convincing the lord)");
+        this.cardPeasant1   = new Card("Ion\n\n(Learn about the Moldavian culture)"); 
 
         this.cardPrawnKing.onUnpressed = function () {
             oldPressed();

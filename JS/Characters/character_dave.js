@@ -2,13 +2,13 @@ class Dave extends Character {
     constructor () {
         super();
 
-        this.event[1] = { text: "goendei my lord",
+        this.event[1] = { text: "goeie my lord",
         options: [    
-        { response: "what might 'goendei' mean?", next: 11 },
+        { response: "what might 'goeie' mean?", next: 11 },
         { response: "I do not wish to talk right now", next: 12 },
         ]};  
 
-            //what might 'goendei'' mean?
+            //what might 'goeie'' mean?
             this.event[11] = { text: "It means good day in our language my liege",
             options: [    
             { response: "What is your language called?", next: 14 },
@@ -16,10 +16,10 @@ class Dave extends Character {
             ]}; 
 
                 //What is your language called?
-                this.event[14] = { text: "Fries, milord",
+                this.event[14] = { text: "Frysk, milord",
                 options: [    
                 { response: "Sounds odd", next: 15 },
-                { response: "Fries, sounds mighty interesting I say", next: 111 },
+                { response: "Frysk, sounds mighty interesting I say", next: 111 },
                 {response : "Thank you for telling me this, but i'll be on my way now", next: 12},
                 ]}; 
 
@@ -45,7 +45,7 @@ class Dave extends Character {
                 { response: "No it's quite alright, I'll be taking my leave now", next: 12 },
                 ]}; 
                 
-                //Fries, sounds mighty interesting I say
+                //Frysk, sounds mighty interesting I say
                 this.event[111] = { text: "Thank you milord",
                 options: [    
                 { response: "Not a problem citizen", next: 16 },

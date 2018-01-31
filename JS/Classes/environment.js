@@ -27,16 +27,16 @@ class Environment {
             
             game_paused = true;
 
-            this.fsButton = new Clickable(-200,-100,200,50,anchorTypes.CENTER);
-            this.fsButton.text = "toggle fullscreen";
-            this.fsButton.onlyUnpressOverButton = true;
-            this.fsButton.onUnpressed = function () {
-                oldPressed();
-                var fs = fullscreen();
-                fullscreen(true);
-            }
+            // this.fsButton = new Clickable(-200,-100,200,50,anchorTypes.CENTER);
+            // this.fsButton.text = "toggle fullscreen";
+            // this.fsButton.onlyUnpressOverButton = true;
+            // this.fsButton.onUnpressed = function () {
+            //     oldPressed();
+            //     var fs = fullscreen();
+            //     fullscreen(true);
+            // }
 
-            this.smButton = new Clickable(200,-100,200,50,anchorTypes.CENTER);
+            this.smButton = new Clickable(0,-100,200,50,anchorTypes.CENTER);
             this.smButton.text = game_muted ? "sound: muted" : "sound: unmuted";
             this.smButton.onlyUnpressOverButton = true;
             this.smButton.onUnpressed = function () {
@@ -71,7 +71,7 @@ class Environment {
                 }
                 
                 game_paused = false;
-                game_environment.settingsButton.fsButton.delete();
+                //game_environment.settingsButton.fsButton.delete();
                 game_environment.settingsButton.smButton.delete();
                 game_environment.settingsButton.settingsText.delete();
 

@@ -2,7 +2,7 @@ class MDPeasant1 extends Character {
     constructor () {
         super();
        
-        this.event[1] = { text:"Hello Domnul('domnul), it's always nice to see new faces in our city. What brought you here?",
+        this.event[1] = { text:"Hello Domnul, it's always nice to see new faces in our city. What brought you here?",
         options: [    
         { response: "Domnul, what does it mean?", next: 11},
         ]}; 
@@ -18,12 +18,12 @@ class MDPeasant1 extends Character {
              options: [    
              { response: "Could you tell me how moldavian people meet guests?", next: 31},
              { response: "Please, tell me about moldavian national food and drinks", next: 41},
-             { response: "Tell me about your national hollydays", next: 51},
+             { response: "Tell me about your national holidays", next: 51},
              { response: "I think I have enough information.", next: 60},
              ]}; 
  
                 //Could you tell me how moldavian people meet guests?
-                this.event[31] = { text: "Moldavian people really like guests. Whenever you come to someone's house you need to drink a glass of wine with the home owner. That's the best way to demonstrate that you trust the home owner.",
+                this.event[31] = { text: "Moldavian people really like guests. Drinking a glass of wine with the homeowner is the best way to demonstrate that you trust him/her.",
                 options: [    
                 { response: "I will keep that in mind.", next: 12},
                 { response: "What if I refuse?", next: 32},
@@ -44,7 +44,7 @@ class MDPeasant1 extends Character {
 
 
                 //Tell me about your national hollydays
-                this.event[51] = { text: "One of the most important national hollydays is New Year that is on 31 of December. In addition to that moldavian people are religious that's why we do celebrate Christmas, but in Moldova it takes place on 7th of January.",
+                this.event[51] = { text: "New Year is very important which is on the 31st of December. Furthermore, we do celebrate Christmas, but in Moldova it takes place on the 7th of January.",
                 options: [    
                 { response: "Thank you for this information.", next: 12},
                 ]}; 

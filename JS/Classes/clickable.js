@@ -79,7 +79,7 @@ class Clickable {
         if (this.drawFrame) {
             strokeWeight(1);
             stroke(50);
-            fill(255);
+            fill(234, 231, 213);
             rect(ax - this.width * this.anchorX, ay - this.height * this.anchorY, this.width, this.height, 10);
         }
 

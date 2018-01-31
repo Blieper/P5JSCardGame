@@ -15,8 +15,8 @@ class Environment_ChooseCulturia extends Environment {
             setToEnv(envids.MAP);
         }
 
-        this.cardPrawnKing  = new Card("Lord Aaiolt");
-        this.cardPeasant1   = new Card("Koert"); 
+        this.cardPrawnKing  = new Card("Lord Koimpe\n\n(Have a shot at convincing the lord)");
+        this.cardPeasant1   = new Card("Bauke\n\n(Learn about the Frysian culture)"); 
         
         let oldPressed = this.cardPrawnKing.onUnpressed;
         this.cardPrawnKing.onUnpressed = function () {

@@ -3,32 +3,39 @@ class Prawnking extends Character {
     constructor () {
         super();
 
-        this.convincedMessage = "Alright, I see you're a worthy new king! But I need to get back to doing prawn stuff so goodbye.";
+        this.convincedMessage = "Good answer. Very well, I accept, and shall join your kingdom.";
         this.reputationNeeded = 15;
 
         // Starting message
 
         this.event[1] = { text: "The lord waits for you to say something",
         options: [    
-        { response: "Goendei, lord of Leeuwarden", next: 11, rep: 5 },
-        { response: "Goendei, lord of Fryslan", next: 12, rep: 0 },
+        { response: "Goeie, lord of Leeuwarden", next: 11, rep: 5 },
+        { response: "Goeie, lord of Fryslan", next: 13, rep: 0 },
         { response: "Good day, lord of Friesland  ", next: 12, rep: -3 },
         ]};      
-            //Goendei, lord of Leeuwarden
-            this.event[11] = { text: "Goendei, young king, I see you've learned a few things before coming here",
+            //Goeie, lord of Leeuwarden
+            this.event[11] = { text: "Goeie, young nobleman, I see you've learned a few things before coming here",
             options: [    
             { response: "You would be correct, because I wish for the region of Fryslan to join my kingdom ", next: 111, rep: 5 },
             { response: "That's right, that's because I wish for the region of Friesland to join my kingdom", next: 111, rep: -5 },
             ]};      
             //Are you a prawn?
-            this.event[12] = { text: "Goendei young king, but I do believe I'm the lord of Leeuwarden",
+            this.event[12] = { text: "Goeie young king, but I do believe I'm the lord of Leeuwarden",
             options: [    
             { response: "Why of course, My apologies. I came here to ask if you were willing to join my kingdom.", next: 111, rep: 5 },
             { response: "Are you sure? I thought this town is called Friesland?", next: 222, rep: -10 },
             ]};      
+
+            //Are you a prawn?
+            this.event[13] = { text: "Goeie young king, but I do believe I'm the lord of Leeuwarden",
+            options: [    
+            { response: "Why of course, My apologies. I came here to ask if you were willing to join my kingdom.", next: 111, rep: 10 },
+            { response: "Are you sure? I thought this town is called Friesland?", next: 222, rep: -10 },
+            ]};                  
         //...Ookay, I came here to reunite your kingdom to my Great empire of Seafood
         //I actually don't care. I want your kingdom to be part of my Great Empire of Seafood.
-        this.event[111] = { text: "It is understandable that you which for the region of Fryslan to join your kingdom, but do you even know it's origins?",
+        this.event[111] = { text: "It is understandable that you wish for the region of Fryslan to join your kingdom, but do you even know it's origins?",
         options: [    
         { response: "I know that it's called Fryslan?", next: 1112, rep: -5 },
         { response: " It is said that a man named Friso settled here, which is where the name Fryslan comes from ", next: 1113, rep: 5 },
@@ -67,7 +74,7 @@ class Prawnking extends Character {
 
             textAlign(CENTER, CENTER);
             textSize(48 * gameplay_replerp);
-            text(gameplay_repchange, width / 2, height / 2);
+            //text(gameplay_repchange, width / 2, height / 2);
         }   
 
     }

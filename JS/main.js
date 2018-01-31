@@ -179,6 +179,7 @@ function setup() {
 function draw() {
   clear();
   cursor(ARROW);
+  background(234, 231, 213);
 
   // Update invironment if it isn't paused
   if (!game_paused) {
